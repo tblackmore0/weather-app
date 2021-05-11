@@ -6,10 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/styles.css">
-    <script src="/script.js"></script>
+    <script src="/script.js" defer></script>
 </head>
 
 <body>    
+
+    <div class = formSpace>
+        <form id = searchBox>
+            <input name = searchBox type="text">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <div class = dataDisplay>
+        <div class = temperatureBox id = temperatureBox>
+            <p class = temperature id = temperature>1</p>
+        </div>
+
+        <div class = descriptionBox id = descriptionBox>
+            <p class = description id = description>1</p>
+        </div>
+    </div>
+
 </body>
 
 </html>

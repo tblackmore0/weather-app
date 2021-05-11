@@ -1,0 +1,54 @@
+body {
+    display: flexbox;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+    .formSpace {
+        display: flexbox;
+        width: 100vw;
+        height: 20%;
+        background-color: blueviolet;
+        margin: 0%;
+        padding: 0;
+    }
+
+    .dataDisplay {
+        display: flexbox;
+        width: 100vw;
+        height: 80%;
+        background-color: brown;
+        margin: 0;
+        padding: 0;
+    }
+
+        .temperatureBox{
+            display: flexbox;
+            width: 20%;
+            height: 20%;
+            margin: 0;
+            padding: 0;
+            background-color:burlywood;
+        }
+
+        .temperature {
+            margin: 0;
+        }
+
+
+        .descriptionBox{
+            display: flexbox;
+            width: 20%;
+            height: 20%;
+            margin: 0;
+            padding: 0;
+            background-color:rgb(141, 115, 81);
+        }
+
+        .description {
+            margin: 0;
+        }
+
