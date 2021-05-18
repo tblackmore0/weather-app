@@ -26,16 +26,47 @@ function showData(weatherData) {
 
     let description = weatherData.current.condition.text;
     updateDescription(description);
+
+    let wind = weatherData.current.wind_mph;
+    updateWind(wind);
+
+    let precip = weatherData.current.precip_mm;
+    updateRain(precip);
+
+    let feelsLike = weatherData.current.feelslike_c;
+    updateFeel(feelsLike);
+
+    let humidity = weatherData.current.humidity;
+    updateHumid(humidity);
 };
 
     function updateTemp(temperature) {
         let tempDiv = document.getElementById('temperature');
-        tempDiv.innerHTML = temperature;
+        tempDiv.innerHTML = temperature + '\u00B0';
     }
 
     function updateDescription(description) {
         let descDiv = document.getElementById('description');
         descDiv.innerHTML = description;
+    }
+
+    function updateWind(wind) {
+        let windDiv = document.getElementById('wind');
+        windDiv.innerHTML = wind + ' mph';
+    }
+
+    function updateRain(precip) {
+        let rainDiv = document.getElementById('rain');
+        rainDiv.innerHTML = precip + ' mm';
+    }
+    
+    function updateFeel(feelsLike) {
+        let feelsDiv = document.getElementById('feels');
+        feelsDiv.innerHTML = feelsLike + '\u00B0';
+    }
+    function updateHumid(humidity) {
+        let humidDiv = document.getElementById('humidity');
+        humidDiv.innerHTML = humidity + ' %';
     }
 
 
