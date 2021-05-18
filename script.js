@@ -21,11 +21,14 @@ async function getWeatherData() {
 
 
 function showData(weatherData) {
-    let temperature = weatherData.current.temp_f;
+    let temperature = weatherData.current.temp_c;
     updateTemp(temperature);
 
     let description = weatherData.current.condition.text;
     updateDescription(description);
+
+    let icon = weatherData.current.condition.icon;
+    updateIcon(icon);
 
     let wind = weatherData.current.wind_mph;
     updateWind(wind);
@@ -38,6 +41,10 @@ function showData(weatherData) {
 
     let humidity = weatherData.current.humidity;
     updateHumid(humidity);
+
+    let city = weatherData.location.name;
+    let country = weatherData.location.country;
+    updateLocation(city, country);
 };
 
     function updateTemp(temperature) {
@@ -48,6 +55,11 @@ function showData(weatherData) {
     function updateDescription(description) {
         let descDiv = document.getElementById('description');
         descDiv.innerHTML = description;
+    }
+
+    function updateIcon(icon) {
+        let iconDiv = document.getElementById('weatherIcon');
+        iconDiv.src = icon;
     }
 
     function updateWind(wind) {
@@ -64,9 +76,15 @@ function showData(weatherData) {
         let feelsDiv = document.getElementById('feels');
         feelsDiv.innerHTML = feelsLike + '\u00B0';
     }
+
     function updateHumid(humidity) {
         let humidDiv = document.getElementById('humidity');
         humidDiv.innerHTML = humidity + ' %';
+    }
+
+    function updateLocation(city, country) {
+        let locationDiv = document.getElementById('location');
+        locationDiv.innerHTML = city + ', ' + country;
     }
 
 
