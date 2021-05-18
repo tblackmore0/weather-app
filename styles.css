@@ -1,54 +1,81 @@
 body {
-    display: flexbox;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
     height: 100vh;
     margin: 0;
     padding: 0;
     overflow: hidden;
+    background-image: url(/images/Clouds.jpg);
+    background-size:cover;
 }
 
     .formSpace {
-        display: flexbox;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        order: 2;
         width: 100vw;
         height: 20%;
-        background-color: blueviolet;
         margin: 0%;
         padding: 0;
     }
 
     .dataDisplay {
-        display: flexbox;
+        order: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         width: 100vw;
         height: 80%;
-        background-color: brown;
         margin: 0;
         padding: 0;
     }
 
-        .temperatureBox{
-            display: flexbox;
-            width: 20%;
-            height: 20%;
-            margin: 0;
-            padding: 0;
-            background-color:burlywood;
+        .mainDisplay{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 70%;
+
         }
 
-        .temperature {
-            margin: 0;
-        }
+            .temperatureBox{
+                display: flex;
+                width: 20%;
+                height: 20%;
+                margin: 0;
+                padding: 0;
+            }
+
+            .temperature {
+                margin: 0;
+                font-size: 50px;
+            }
 
 
-        .descriptionBox{
-            display: flexbox;
-            width: 20%;
-            height: 20%;
-            margin: 0;
-            padding: 0;
-            background-color:rgb(141, 115, 81);
-        }
+            .descriptionBox{
+                display: flex;
+                width: 20%;
+                height: 20%;
+                margin: 0;
+                padding: 0;
+            }
 
-        .description {
-            margin: 0;
+            .description {
+                margin: 0;
+            }
+
+        .minorDisplay {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 30%;
+            
         }
 

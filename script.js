@@ -19,15 +19,6 @@ async function getWeatherData() {
     showData(weatherData);
 } 
 
-/* function fetchAPI() {
-    searchText = document.getElementById('searchBox').value;
-    return fetch(`https://api.weatherapi.com/v1/current.json?key=79849c311dcb4d61921155022211105&q=${searchText}`)
-    .then((response) => response.json())
-    .then((result) => {
-      console.log(result)
-    })};
-
-    */
 
 function showData(weatherData) {
     let temperature = weatherData.current.temp_f;
