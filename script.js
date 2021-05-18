@@ -6,18 +6,28 @@
     use data to modify HTML
 */
 
-/*
-const searchBox = document.getElementById('searchBox');
-    searchBox.addEventListener('submit', getWeatherData);
 
-*/
+const searchButton = document.getElementById('searchButton');
+    searchButton.addEventListener('click',
+        getWeatherData
+    );
+
 async function getWeatherData() {
-    const output = searchBox.elements[0];
-    const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=79849c311dcb4d61921155022211105&q=Beijing`, {mode: 'cors'});
+    searchText = document.getElementById('searchBox').value;
+    const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=79849c311dcb4d61921155022211105&q=${searchText}`);
     const weatherData = await response.json();
-    console.log(weatherData);
     showData(weatherData);
-}
+} 
+
+/* function fetchAPI() {
+    searchText = document.getElementById('searchBox').value;
+    return fetch(`https://api.weatherapi.com/v1/current.json?key=79849c311dcb4d61921155022211105&q=${searchText}`)
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result)
+    })};
+
+    */
 
 function showData(weatherData) {
     let temperature = weatherData.current.temp_f;
@@ -25,7 +35,7 @@ function showData(weatherData) {
 
     let description = weatherData.current.condition.text;
     updateDescription(description);
-}
+};
 
     function updateTemp(temperature) {
         let tempDiv = document.getElementById('temperature');
@@ -37,7 +47,5 @@ function showData(weatherData) {
         descDiv.innerHTML = description;
     }
 
-
-getWeatherData();
 
 
