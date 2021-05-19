@@ -79,7 +79,7 @@ body {
             justify-content: center;
             align-items: center;
             width: 100%;
-            height: 70%;
+            height: 50%;
             gap: 0%;
 
         }
@@ -87,6 +87,8 @@ body {
             .temperatureBox{
                 display: flex;
                 justify-content: center;
+                align-items: center;
+                flex-direction: column;
                 margin-left: 20%;
                 padding: 0;
                 width: 50%;
@@ -97,6 +99,38 @@ body {
                 margin: 0;
                 font-size: 100px;
                 font-family: 'Exo 2', sans-serif;
+                height: 90%;
+            }
+
+            .tempOptions {
+                height: 5%;
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                gap: 5%;
+                justify-content: center;
+                align-content: center;
+
+            }
+
+            .farenheit {
+                background-color: rgba(0, 0, 0, 0.3);
+                height: 5%;
+                width: 5%;
+                border-radius: 50%;
+                justify-content: center;
+                align-items: center;
+
+            }
+
+            .celsius {
+                background-color: rgba(0, 0, 0, 0.3);
+                height: 5%;
+                width: 5%;
+                border-radius: 50%;
+                justify-items: center;
+                align-content: center;
+
             }
 
 
@@ -144,6 +178,7 @@ body {
             }
 
             .minorTitle {
+                display: none;
                 margin: 0;
                 font-size: 25px;
                 font-family: 'Exo 2', sans-serif;

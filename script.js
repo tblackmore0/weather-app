@@ -14,9 +14,18 @@ const searchButton = document.getElementById('searchButton');
 async function getWeatherData() {
     searchBox = document.getElementById('searchBox');
     searchText = searchBox.value;
+
+    try {
     const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=79849c311dcb4d61921155022211105&q=${searchText}`);
     const weatherData = await response.json();
     showData(weatherData);
+
+    } catch (err) {
+         if (err.name === 'TypeError') {
+             alert('Cannot find location!')
+         }
+      } 
+    
 } 
 
 
@@ -42,6 +51,12 @@ function showData(weatherData) {
     let city = weatherData.location.name;
     let country = weatherData.location.country;
     updateLocation(city, country);
+
+    titles = document.getElementsByClassName('minorTitle');
+        for (i = 0; i <titles.length; i++) {
+            titles[i].style.display = 'flex';
+        }
+
 };
 
     function updateTemp(temperature) {

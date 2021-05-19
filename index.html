@@ -15,7 +15,7 @@
 
     <div class = formSpace>
         <div class = searchDiv>
-            <input id = searchBox type="text" class = searchBox>
+            <input id = searchBox type="text" class = searchBox autocomplete="off">
             <img src="/images/search.png" id = searchButton class = searchButton>
         </div>
     </div>
@@ -25,6 +25,14 @@
         <div class = mainDisplay>
             <div class = temperatureBox id = temperatureBox>
                 <p class = temperature id = temperature></p>
+                <div class = tempOptions>
+                    <div class = farenheit>
+                        <p>F</p>
+                    </div>
+                    <div class = celsius>
+                        <p>C</p>
+                    </div>
+                </div>
             </div>
 
             <div class = descriptionBox id = descriptionBox>
