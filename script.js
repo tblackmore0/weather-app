@@ -1,19 +1,19 @@
-/* retrieve text from search box
-    process text
-    form validation
-    use text as argument for async function to retrieve data
-    retrieve data from API
-    use data to modify HTML
-*/
-
-
 const searchButton = document.getElementById('searchButton');
+    
     searchButton.addEventListener('click',
         getWeatherData
     );
 
+    document.addEventListener('keydown', function (e) {
+        if (e.code === "Enter") {
+            getWeatherData();
+        }
+    });
+
+
 async function getWeatherData() {
-    searchText = document.getElementById('searchBox').value;
+    searchBox = document.getElementById('searchBox');
+    searchText = searchBox.value;
     const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=79849c311dcb4d61921155022211105&q=${searchText}`);
     const weatherData = await response.json();
     showData(weatherData);
@@ -26,9 +26,6 @@ function showData(weatherData) {
 
     let description = weatherData.current.condition.text;
     updateDescription(description);
-
-    let icon = weatherData.current.condition.icon;
-    updateIcon(icon);
 
     let wind = weatherData.current.wind_mph;
     updateWind(wind);
@@ -55,11 +52,6 @@ function showData(weatherData) {
     function updateDescription(description) {
         let descDiv = document.getElementById('description');
         descDiv.innerHTML = description;
-    }
-
-    function updateIcon(icon) {
-        let iconDiv = document.getElementById('weatherIcon');
-        iconDiv.src = icon;
     }
 
     function updateWind(wind) {
