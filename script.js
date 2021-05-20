@@ -10,14 +10,48 @@ const searchButton = document.getElementById('searchButton');
         }
     });
 
+const searchBox = document.getElementById('searchBox');
+    
+    searchBox.addEventListener('click', clearInput);
+
+    function clearInput() {
+        searchBox.value = '';
+        searchBox.removeEventListener('click', clearInput);
+    };
+
+const celsius = document.getElementById('celsius');
+const celsiusText = document.getElementById('celsiusText')
+const farenheit = document.getElementById('farenheit')
+const farenheitText = document.getElementById('farenheitText')
+
+let weatherData 
+
+celsius.addEventListener('click', function (e) {
+    if (celsius.className === 'tempInactive') {
+        celsius.className = 'tempActive';
+        celsiusText.className = 'textActive';
+        farenheit.className = 'tempInactive';
+        farenheitText.className = 'textInactive';
+        changeMeasurement(weatherData);
+    }
+});
+
+farenheit.addEventListener('click', function (e) {
+    if (farenheit.className === 'tempInactive') {
+        farenheitText.className = 'textActive';
+        farenheit.className = 'tempActive';
+        celsius.className = 'tempInactive';
+        celsiusText.className = 'textInactive';
+        changeMeasurement(weatherData);
+    }
+});
 
 async function getWeatherData() {
-    searchBox = document.getElementById('searchBox');
     searchText = searchBox.value;
 
     try {
     const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=79849c311dcb4d61921155022211105&q=${searchText}`);
-    const weatherData = await response.json();
+    weatherData = await response.json();
     showData(weatherData);
 
     } catch (err) {
@@ -28,10 +62,9 @@ async function getWeatherData() {
     
 } 
 
-
 function showData(weatherData) {
-    let temperature = weatherData.current.temp_c;
-    updateTemp(temperature);
+
+    changeMeasurement (weatherData);
 
     let description = weatherData.current.condition.text;
     updateDescription(description);
@@ -42,8 +75,6 @@ function showData(weatherData) {
     let precip = weatherData.current.precip_mm;
     updateRain(precip);
 
-    let feelsLike = weatherData.current.feelslike_c;
-    updateFeel(feelsLike);
 
     let humidity = weatherData.current.humidity;
     updateHumid(humidity);
@@ -52,11 +83,7 @@ function showData(weatherData) {
     let country = weatherData.location.country;
     updateLocation(city, country);
 
-    titles = document.getElementsByClassName('minorTitle');
-        for (i = 0; i <titles.length; i++) {
-            titles[i].style.display = 'flex';
-        }
-
+    showStuff ();
 };
 
     function updateTemp(temperature) {
@@ -94,5 +121,44 @@ function showData(weatherData) {
         locationDiv.innerHTML = city + ', ' + country;
     }
 
+function changeMeasurement (weatherData) {
+    
+        let temperatureC = weatherData.current.temp_c;
+        let feelsLikeC = weatherData.current.feelslike_c;
+        let temperatureF = weatherData.current.temp_f;
+        let feelsLikeF = weatherData.current.feelslike_f;
 
+        if (celsius.className === 'tempActive') {
+            updateTemp(temperatureC);
+            updateFeel(feelsLikeC);
+        }
+        if (farenheit.className === 'tempActive') {
+            updateTemp(temperatureF);
+            updateFeel(feelsLikeF);
+    }};
+
+// This needs refactoring
+
+function showStuff () {
+    titles = document.getElementsByClassName('minorTitle');
+        for (i = 0; i <titles.length; i++) {
+            titles[i].style.display = 'flex';
+        }
+
+    let showTemp1 = document.getElementsByClassName('tempActive')
+    for (i = 0; i <showTemp1.length; i++) {
+        showTemp1[i].style.display = 'block';
+    }
+    let showTemp2 = document.getElementsByClassName('tempInactive')
+    for (i = 0; i <showTemp2.length; i++) {
+        showTemp2[i].style.display = 'block';
+    }
+    let showTemp3 = document.getElementsByClassName('textActive')
+    for (i = 0; i <showTemp3.length; i++) {
+        showTemp3[i].style.display = 'block';
+    }
+    let showTemp4 = document.getElementsByClassName('textInactive')
+    for (i = 0; i <showTemp4.length; i++) {
+        showTemp4[i].style.display = 'block';
+    }}
 

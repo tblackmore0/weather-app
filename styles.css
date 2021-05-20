@@ -31,6 +31,7 @@ body {
             height: 45%;
             width: 50%;
             border-radius: 25px;
+            border: solid 1px black;
         }
 
             .searchBox {
@@ -47,6 +48,7 @@ body {
                 font-family: 'Exo 2', sans-serif;
                 width: 90%;
                 height: 80%;
+                
             }
 
             .searchButton {
@@ -89,9 +91,8 @@ body {
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
-                margin-left: 20%;
                 padding: 0;
-                width: 50%;
+                width: auto;
                 position: static;
             }
 
@@ -100,47 +101,78 @@ body {
                 font-size: 100px;
                 font-family: 'Exo 2', sans-serif;
                 height: 90%;
+                
             }
 
             .tempOptions {
-                height: 5%;
-                width: 100%;
+                height: 100%;
+                width: 2%;
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
                 gap: 5%;
                 justify-content: center;
                 align-content: center;
+                padding-top: 1%;
 
             }
 
-            .farenheit {
+            .textActive {
+                font-size: 20px;
+                font-family: 'Exo 2', sans-serif;
+                margin: 0;
+                height: auto;
+                width: auto;
+                color: black;
+                display: none;
+            }
+
+            .textInactive {
+                font-size: 20px;
+                font-family: 'Exo 2', sans-serif;
+                margin: 0;
+                height: auto;
+                width: auto;
+                color: rgba(0, 0, 0, 0.3);
+                display: none;
+            }
+
+
+            .tempActive {
                 background-color: rgba(0, 0, 0, 0.3);
-                height: 5%;
-                width: 5%;
-                border-radius: 50%;
-                justify-content: center;
-                align-items: center;
+                height: 25px;
+                width: 25px;
+                border-radius: 100%;
+                text-align: center;
+                border: solid 1px black;
+                display: none;
 
             }
 
-            .celsius {
-                background-color: rgba(0, 0, 0, 0.3);
-                height: 5%;
-                width: 5%;
-                border-radius: 50%;
-                justify-items: center;
-                align-content: center;
+            .tempActive:hover {
+                cursor: default;
+            }
 
+            .tempInactive {
+                background-color: rgba(0, 0, 0, 0.3);
+                height: 25px;
+                width: 25px;
+                border-radius: 100%;
+                text-align: center;
+                border: none;
+                display: none;
+            }
+
+            .tempInactive:hover {
+                cursor: pointer;
             }
 
 
             .descriptionBox{
                 display: flex;
                 justify-content: center;
-                width: 50%;
-                margin-right: 20%;
                 padding: 0;
                 position: static;
+                margin-left: 5%;
             }
 
             .description {
